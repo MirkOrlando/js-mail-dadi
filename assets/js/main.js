@@ -14,12 +14,19 @@ const emailsList = [
 
 //console.log(emailsList);
 
-/* richiedere all'utente il suo indirizzo email */
-
 /* assegnando gli elementi del DOM a delle variabili in JS */
 const formElement = document.querySelector("form");
 const emailInputElement = document.getElementById("email");
-const submitInputElement = document.getElementById("email");
+const submitInputElement = document.getElementById("submit");
+const resetInputElement = document.getElementById("reset");
+
+/* assegnare l'email inserita dall'utente alla variabile in JS */
+formElement.addEventListener("submit", function (getEmail) {
+  getEmail.preventDefault();
+  submitInputElement.setAttribute("disabled", "disabled");
+  const emailUser = emailInputElement.value();
+  console.log(emailUser);
+});
 
 //console.log(userEmail);
 let logged = false;
