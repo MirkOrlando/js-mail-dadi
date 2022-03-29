@@ -15,15 +15,42 @@ const emailsList = [
 //console.log(emailsList);
 
 /* assegnando gli elementi del DOM a delle variabili in JS */
-const formElement = document.querySelector("form");
+const formLoginElement = document.getElementById("login");
 const emailInputElement = document.getElementById("email");
 const submitInputElement = document.getElementById("submit");
 const resetInputElement = document.getElementById("reset");
+const formSigninElement = document.getElementById("signin");
+const emailNewInputElement = document.getElementById("new_email");
+const submitNewInputElement = document.getElementById("submit_new");
+const resetNewInputElement = document.getElementById("reset_new");
 let logged = false;
+let registered = false;
+
+/* inserire l'email inserita dall'utente nella lista delle email */
+formSigninElement.addEventListener("submit", function (signEmail) {
+  signEmail.preventDefault();
+  submitInputElement.setAttribute("disabled", "disabled");
+  const emailUser = emailNewInputElement.value;
+
+  for (let i = 0; i < emailsList.length; i++) {
+    const email = emailsList[i];
+    if (emailUser === email) {
+      registered = true;
+    }
+  }
+
+  if (registered === false) {
+    emailsList.push(emailUser);
+    alert("email correttamente registrata");
+  } else {
+    alert("Utente gia registrato");
+  }
+});
+console.log(emailsList);
 
 /* assegnare l'email inserita dall'utente alla variabile in JS */
-formElement.addEventListener("submit", function (getEmail) {
-  getEmail.preventDefault();
+formLoginElement.addEventListener("submit", function (logEmail) {
+  logEmail.preventDefault();
   submitInputElement.setAttribute("disabled", "disabled");
   const emailUser = emailInputElement.value;
   console.log(emailUser);
@@ -47,7 +74,7 @@ formElement.addEventListener("submit", function (getEmail) {
 });
 
 /* rendere funzionante il tasto reset */
-formElement.addEventListener("submit", function (resetForm) {
+formLoginElement.addEventListener("submit", function (resetForm) {
   resetForm.preventDefault();
   submitInputElement.removeAttribute("disabled", "disabled");
   emailInputElement.value = "";
@@ -81,6 +108,7 @@ playElement.addEventListener("click", function () {
   pcRandomNumContainer.innerHTML = `<div class="fs_4">${pcRandomNum}</div>`;
 
   /* confrontare i numeri casuali e stabilire chi ha fatto il numero più alto */
+  /* comunicare il vincitore */
   if (userRandomNum < pcRandomNum) {
     resultGame.innerHTML = `<div class="result_content">Hai perso!</div>`;
   } else if (userRandomNum > pcRandomNum) {
@@ -88,6 +116,4 @@ playElement.addEventListener("click", function () {
   } else {
     resultGame.innerHTML = `<div class="result_content">Pari!</div>`;
   }
-
-  /* comunicare il vincitore */
 });
