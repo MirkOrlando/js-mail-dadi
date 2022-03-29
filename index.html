@@ -8,12 +8,41 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <form action="" method="get">
-      <label for="email">Inserisci il tuo indirizzo email</label>
-      <input type="email" id="email" name="email" required />
-      <input type="submit" id="submit" />
-      <input type="reset" id="reset" />
-    </form>
+    <div class="container access_container">
+      <form action="" method="get">
+        <div class="input-email">
+          <label for="email">Inserisci il tuo indirizzo email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="actions">
+          <input type="submit" id="submit" />
+          <input type="reset" id="reset" />
+        </div>
+      </form>
+    </div>
+    <div class="container game_container">
+      <h2>Il Gioco dei Dadi</h2>
+      <div class="dashboard">
+          <div class="row">
+              <div class="col">
+                <div class="user-card">
+                    <h4>Il Tuo Numero</h4>
+                    <div class="user_random_num_container"></div>
+                  </div>          
+              </div>
+              <div class="col">
+                <div class="pc-card">
+                    <h4>Il Numero del Computer</h4>
+                    <div class="pc_random_num_container"></div>
+                </div>
+        
+              </div>
+          </div>
+          <div class="actions">
+            <a id="play">Gioca</a>
+          </div>
+
+    </div>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

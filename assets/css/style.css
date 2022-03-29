@@ -3,3 +3,55 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.container {
+  width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.game_container {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col {
+  flex-basis: calc(100% / 6);
+}
+
+.user-card,
+.pc-card {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_random_num_container,
+.pc_random_num_container {
+  aspect-ratio: 1/1;
+  width: calc(100% / 2);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.fs_4 {
+  font-size: 4rem;
+}

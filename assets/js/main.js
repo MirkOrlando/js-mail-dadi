@@ -63,19 +63,30 @@ Che ci sia un array da qualche parte?
 Se dobbiamo confrontare qualcosa che "cosa" ci serve?
  */
 
+const playElement = document.getElementById("play");
+
 /* inizializzare le variabili dei numeri casuali */
-const userRandomNum = Math.ceil(Math.random() * 6);
-const pcRandomNum = Math.ceil(Math.random() * 6);
-console.log(userRandomNum, pcRandomNum);
-console.log(typeof userRandomNum, typeof pcRandomNum);
+const pcRandomNumContainer = document.querySelector(".pc_random_num_container");
+const userRandomNumContainer = document.querySelector(
+  ".user_random_num_container"
+);
 
-/* confrontare i numeri casuali e stabilire chi ha fatto il numero più alto */
-if (userRandomNum < pcRandomNum) {
-  console.log("hai perso!");
-} else if (userRandomNum > pcRandomNum) {
-  console.log("hai vinto!");
-} else {
-  console.log("pari!");
-}
+playElement.addEventListener("click", function () {
+  const pcRandomNum = Math.ceil(Math.random() * 6);
+  const userRandomNum = Math.ceil(Math.random() * 6);
 
-/* comunicare il vincitore */
+  userRandomNumContainer.innerHTML = `<div class="fs_4">${userRandomNum}</div>`;
+
+  pcRandomNumContainer.innerHTML = `<div class="fs_4">${pcRandomNum}</div>`;
+
+  /* confrontare i numeri casuali e stabilire chi ha fatto il numero più alto */
+  if (userRandomNum < pcRandomNum) {
+    console.log("hai perso!");
+  } else if (userRandomNum > pcRandomNum) {
+    console.log("hai vinto!");
+  } else {
+    console.log("pari!");
+  }
+
+  /* comunicare il vincitore */
+});
