@@ -19,35 +19,42 @@ const formElement = document.querySelector("form");
 const emailInputElement = document.getElementById("email");
 const submitInputElement = document.getElementById("submit");
 const resetInputElement = document.getElementById("reset");
+let logged = false;
 
 /* assegnare l'email inserita dall'utente alla variabile in JS */
 formElement.addEventListener("submit", function (getEmail) {
   getEmail.preventDefault();
   submitInputElement.setAttribute("disabled", "disabled");
-  const emailUser = emailInputElement.value();
+  const emailUser = emailInputElement.value;
   console.log(emailUser);
+
+  /* verificare che l'email dell'utente sia presente 
+  tra gli indirizzi email autorizzati */
+  for (let i = 0; i < emailsList.length; i++) {
+    const email = emailsList[i];
+    console.log(email);
+    if (emailUser === email) {
+      logged = true;
+    }
+    console.log(logged);
+  }
+
+  if (logged === true) {
+    alert("Accesso eseguito correttamento");
+  } else {
+    alert("Utente non riconosciuto, procedere prima alla registrazione");
+  }
+});
+
+/* rendere funzionante il tasto reset */
+formElement.addEventListener("submit", function (resetForm) {
+  resetForm.preventDefault();
+  submitInputElement.removeAttribute("disabled", "disabled");
+  emailInputElement.value = "";
 });
 
 //console.log(userEmail);
-let logged = false;
 
-/* verificare che l'email dell'utente sia presente 
-tra gli indirizzi email autorizzati */
-/* for (let i = 0; i < emailsList.length; i++) {
-  const email = emailsList[i];
-  console.log(email);
-  if (userEmail === email) {
-    logged = true;
-  }
-  console.log(logged);
-}
- */
-/* if (logged === true) {
-  alert("Accesso eseguito correttamento");
-} else {
-  alert("Utente non riconosciuto, procedere prima alla registrazione");
-}
- */
 /* Gioco dei dadi
 Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. 
 Stabilire il vincitore, in base a chi fa il punteggio più alto.
