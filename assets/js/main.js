@@ -23,13 +23,22 @@ const formSigninElement = document.getElementById("signin");
 const emailNewInputElement = document.getElementById("new_email");
 const submitNewInputElement = document.getElementById("submit_new");
 const resetNewInputElement = document.getElementById("reset_new");
+const loginElement = document.querySelector("login_btn");
+const signinElement = document.getElementById("signin_btn");
+const signinContainerElement = document.querySelector(".signin_container");
+const LoginContainerElement = document.querySelector(".login_container");
 let logged = false;
 let registered = false;
 
+/* signinElement.addEventListener("click", function () {
+  signinContainerElement.classList.remove("d_none");
+});
+ */
 /* inserire l'email inserita dall'utente nella lista delle email */
 formSigninElement.addEventListener("submit", function (signEmail) {
   signEmail.preventDefault();
-  submitInputElement.setAttribute("disabled", "disabled");
+  submitNewInputElement.setAttribute("disabled", "disabled");
+  let registered = false;
   const emailUser = emailNewInputElement.value;
 
   for (let i = 0; i < emailsList.length; i++) {
@@ -46,14 +55,20 @@ formSigninElement.addEventListener("submit", function (signEmail) {
     alert("Utente gia registrato");
   }
 });
-console.log(emailsList);
+
+/* rendere funzionante il tasto reset del form signin*/
+formSigninElement.addEventListener("submit", function (resetFormSignin) {
+  resetFormSignin.preventDefault();
+  submitNewInputElement.removeAttribute("disabled", "disabled");
+  emailNewInputElement.value = "";
+});
 
 /* assegnare l'email inserita dall'utente alla variabile in JS */
 formLoginElement.addEventListener("submit", function (logEmail) {
   logEmail.preventDefault();
   submitInputElement.setAttribute("disabled", "disabled");
   const emailUser = emailInputElement.value;
-  console.log(emailUser);
+  let logged = false;
 
   /* verificare che l'email dell'utente sia presente 
   tra gli indirizzi email autorizzati */
