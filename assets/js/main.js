@@ -70,6 +70,7 @@ const pcRandomNumContainer = document.querySelector(".pc_random_num_container");
 const userRandomNumContainer = document.querySelector(
   ".user_random_num_container"
 );
+const resultGame = document.querySelector(".result");
 
 playElement.addEventListener("click", function () {
   const pcRandomNum = Math.ceil(Math.random() * 6);
@@ -81,11 +82,11 @@ playElement.addEventListener("click", function () {
 
   /* confrontare i numeri casuali e stabilire chi ha fatto il numero più alto */
   if (userRandomNum < pcRandomNum) {
-    console.log("hai perso!");
+    resultGame.innerHTML = `<div class="result_content">Hai perso!</div>`;
   } else if (userRandomNum > pcRandomNum) {
-    console.log("hai vinto!");
+    resultGame.innerHTML = `<div class="result_content">Hai vinto!</div>`;
   } else {
-    console.log("pari!");
+    resultGame.innerHTML = `<div class="result_content">Pari!</div>`;
   }
 
   /* comunicare il vincitore */

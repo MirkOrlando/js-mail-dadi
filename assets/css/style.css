@@ -27,10 +27,11 @@ a {
 .row {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .col {
-  flex-basis: calc(100% / 6);
+  flex-basis: calc(100% / 5);
 }
 
 .user-card,
@@ -50,6 +51,11 @@ a {
   justify-content: center;
   align-items: center;
   margin: 0.5rem 0;
+}
+
+.result_content {
+  font-size: 3rem;
+  padding: 0 0 1.5rem;
 }
 
 .fs_4 {
