@@ -15,7 +15,12 @@ const emailsList = [
 //console.log(emailsList);
 
 /* richiedere all'utente il suo indirizzo email */
-//const userEmail = prompt("inserisci il tuo indirizzo email");
+
+/* assegnando gli elementi del DOM a delle variabili in JS */
+const formElement = document.querySelector("form");
+const emailInputElement = document.getElementById("email");
+const submitInputElement = document.getElementById("email");
+
 //console.log(userEmail);
 let logged = false;
 
