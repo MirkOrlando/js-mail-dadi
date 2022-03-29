@@ -23,17 +23,23 @@ const formSigninElement = document.getElementById("signin");
 const emailNewInputElement = document.getElementById("new_email");
 const submitNewInputElement = document.getElementById("submit_new");
 const resetNewInputElement = document.getElementById("reset_new");
-const loginElement = document.querySelector("login_btn");
-const signinElement = document.getElementById("signin_btn");
+const loginElement = document.querySelector(".login_btn");
+const signinElement = document.querySelector(".signin_btn");
 const signinContainerElement = document.querySelector(".signin_container");
-const LoginContainerElement = document.querySelector(".login_container");
+const loginContainerElement = document.querySelector(".login_container");
 let logged = false;
 let registered = false;
 
-/* signinElement.addEventListener("click", function () {
+signinElement.addEventListener("click", function () {
   signinContainerElement.classList.remove("d_none");
+  loginContainerElement.classList.add("d_none");
 });
- */
+
+loginElement.addEventListener("click", function () {
+  loginContainerElement.classList.remove("d_none");
+  signinContainerElement.classList.add("d_none");
+});
+
 /* inserire l'email inserita dall'utente nella lista delle email */
 formSigninElement.addEventListener("submit", function (signEmail) {
   signEmail.preventDefault();
